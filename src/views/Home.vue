@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <images-upload :imageData="{count: 4, showCount: true}" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ImagesUpload from '@/components/ImagesUpload'
 
 export default {
-  name: 'home',
   components: {
-    HelloWorld
+    ImagesUpload
+  },
+  data () {
+    return {}
   }
 }
 </script>

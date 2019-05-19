@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
+    "lrz": "^4.9.40",
     "register-service-worker": "^1.6.2",
     "vant": "^1.6.19",
     "vconsole": "^3.3.0",
