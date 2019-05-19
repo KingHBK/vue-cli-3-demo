@@ -21,7 +21,7 @@
 <template>
   <div class="emoji-box">
     <div class="emoji" v-for="(item, index) in emojiList" :key="index" @click="clickEmoji(index)" >
-      <img :src="emojiBaseUrl + '/' +item.file" />
+      <img :src="emojiBaseUrl + '/' + item.file" />
     </div>
   </div>
 </template>
@@ -161,20 +161,20 @@ export default {
     }
   },
   methods: {
-    clickEmoji(name) {
+    clickEmoji (name) {
       this.$emit('clickEmoji', name)
     },
-    encode(_map, _content) {
+    encode (_map, _content) {
       _content = '' + _content
       if (!_map || !_content) {
         return _content || ''
       }
-      return _content.replace(_map.r, function($1) {
-        var _result = _map[!_map.i ? $1.toLowerCase() : $1]
+      return _content.replace(_map.r, $1 => {
+        let _result = _map[!_map.i ? $1.toLowerCase() : $1]
         return _result != null ? _result : $1
       })
     },
-    handleEmojiText(sourceText) {
+    handleEmojiText (sourceText) {
       sourceText = this.escape(sourceText)
       if (/\[[^\]]+\]/.test(sourceText)) {
         let emojiItems = sourceText.match(/\[[^\]]+\]/g)
@@ -190,7 +190,7 @@ export default {
       }
       return sourceText
     },
-    escape(_content) {
+    escape (_content) {
       let _reg = /<br\/?>$/
       let _map = {
         r: /\<|\>|\&|\r|\n|\s|\'|\"/g,
@@ -202,7 +202,7 @@ export default {
         "'": '&#39;',
         '\n': '<br/>',
         '\r': ''
-      };
+      }
       _content = this.encode(_map, _content)
       return _content.replace(_reg, '<br/>')
     }
