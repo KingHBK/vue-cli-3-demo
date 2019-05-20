@@ -17,7 +17,6 @@
 }
 </style>
 
-
 <template>
   <div class="emoji-box">
     <div class="emoji" v-for="(item, index) in emojiList" :key="index" @click="clickEmoji(index)" >
@@ -28,7 +27,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       emojiList: {
         '[大笑]': { file: 'emoji_0.png' },
@@ -193,6 +192,7 @@ export default {
     escape (_content) {
       let _reg = /<br\/?>$/
       let _map = {
+        // eslint-disable-next-line
         r: /\<|\>|\&|\r|\n|\s|\'|\"/g,
         '<': '&lt;',
         '>': '&gt;',

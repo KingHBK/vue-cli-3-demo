@@ -1,15 +1,15 @@
 <template>
   <div>
-    <images-upload :imageData="{count: 4, showCount: true}" />
+    <emoji />
   </div>
 </template>
 
 <script>
-import ImagesUpload from '@/components/ImagesUpload'
+import Emoji from '@/components/Emoji'
 
 export default {
   components: {
-    ImagesUpload
+    Emoji
   },
   data () {
     return {}

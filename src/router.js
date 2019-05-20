@@ -1,20 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import { Toast } from 'vant'
+import { getCookie } from '@/assets/js/common'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      component: Home
+      redirect: '/Home'
     },
     {
-      path: '/about',
-      component: () => import('./views/About.vue')
+      path: '/Home',
+      meta: {
+        title: '首页',
+        checkAuth: false
+      },
+      component: () => import('@/views/Home')
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const token = getCookie('token')
+  if (to.meta.checkAuth && (token === null || token === '')) {
+    Toast('请登录')
+    next({ path: '/login/index' })
+  } else {
+    next()
+  }
+})
+
+export default router
