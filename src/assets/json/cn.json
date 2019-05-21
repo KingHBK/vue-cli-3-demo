@@ -1,0 +1,13 @@
+{
+  "language": {
+    "language": "中文",
+    "selectLanguage": "选择语言"
+  },
+  "tips": {
+    "warmPrompt": "温馨提示",
+    "noLogin": "用户未登录",
+    "loading": "加载中",
+    "confirm": "确认",
+    "cancel": "取消"
+  }
+}

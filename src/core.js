@@ -1,5 +1,12 @@
+import Vue from 'vue'
+import VueI18n from 'vue-i18n'
+import router from './router'
 import axios from 'axios'
 import { Toast } from 'vant'
+import { delCookie, languageSet } from '@/assets/js/common'
+import { cn, en } from '@/assets/js/language'
+
+Vue.use(VueI18n)
 
 // 判断当前应用环境
 // 生产环境
@@ -8,6 +15,13 @@ const isProd = Object.is(process.env.NODE_ENV, 'production') && window.location.
 // const isQc = Object.is(process.env.NODE_ENV, 'production') && window.location.host.indexOf('') > -1
 // 开发环境
 // const isDev = Object.is(process.env.NODE_ENV, 'development')
+
+const i18n = new VueI18n({
+  locale: languageSet(),
+  messages: {
+    cn, en
+  }
+})
 
 // 接口请求相关，修改时清不要直接修改拦截器，修改此处配置即可
 const A = axios
@@ -19,8 +33,12 @@ const apiConfig = {
   },
   dealResponse (response) { // 拦截返回时的处理
     let result = response.data
-    if (result.error_code !== 200) {
-      Toast(result.error_msg)
+    if (result.code !== 200) {
+      Toast(result.msg)
+      if (result.code === 100) { // 后台验证登录信息失败
+        delCookie('token')
+        router.push({ path: '/login/index' })
+      }
     }
     return result
   }
@@ -48,4 +66,4 @@ A.interceptors.response.use(response => {
   Toast(`连接异常 ${error.response.status}`)
 })
 
-export { A }
+export { i18n, A }

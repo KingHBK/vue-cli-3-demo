@@ -135,4 +135,17 @@ let isMobileAvailable = (phone) => {
   }
 }
 
-export { timestampToTime, timestampToEnd, setCookie, getCookie, delCookie, judgeOS, isWeiXin, isMobileAvailable, getQueryString }
+/**
+ * 语言设置
+ * @return {String} 如果当前浏览器没有设置语言，则默认设置并返回中文。若有设置则直接返回当前设置语言.
+ */
+let languageSet = () => {
+  if (getCookie('language') === '') {
+    setCookie('language', 'cn')
+    return 'cn'
+  } else {
+    return getCookie('language')
+  }
+}
+
+export { timestampToTime, timestampToEnd, setCookie, getCookie, delCookie, judgeOS, isWeiXin, isMobileAvailable, getQueryString, languageSet }

@@ -1,0 +1,13 @@
+{
+  "language": {
+    "language": "English",
+    "selectLanguage": "Select Language"
+  },
+  "tips": {
+    "warmPrompt": "",
+    "noLogin": "",
+    "loading": "Loading",
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  }
+}
