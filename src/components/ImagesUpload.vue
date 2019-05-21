@@ -1,6 +1,4 @@
-<style lang="less">
-@import "../assets/css/common.less";
-
+<style lang="less" scoped>
 .image-box {
   overflow: hidden;
   padding-top: 2px;
@@ -84,7 +82,12 @@ import lrz from 'lrz'
 
 export default {
   // imageData={url: xxx, count: xx, showCount: true/false}
-  props: [ 'imageData' ],
+  props: {
+    imageData: {
+      type: Object,
+      required: true
+    }
+  },
   data () {
     return {
       imageBase: []
