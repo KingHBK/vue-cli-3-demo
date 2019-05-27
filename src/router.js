@@ -20,6 +20,14 @@ const router = new Router({
         checkAuth: false
       },
       component: () => import('@/views/Home')
+    },
+    {
+      path: '/lesson/dataType',
+      meta: {
+        title: '数据类型',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/DataType')
     }
   ]
 })

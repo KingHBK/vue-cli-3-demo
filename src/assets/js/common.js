@@ -148,4 +148,37 @@ let languageSet = () => {
   }
 }
 
-export { timestampToTime, timestampToEnd, setCookie, getCookie, delCookie, judgeOS, isWeiXin, isMobileAvailable, getQueryString, languageSet }
+/**
+ * 判断数据类型
+ * @param {*} data 传入需判断数据类型的参数
+ * @return {String} 数据类型(全小写字符串)
+ */
+const judgeDataType = (data) => {
+  const dataProto = Object.prototype.toString.call(data)
+  if (dataProto === '[object String]') return 'string'
+  if (dataProto === '[object Number]') return 'number'
+  if (dataProto === '[object Symbol]') return 'symbol'
+  if (dataProto === '[object Boolean]') return 'boolean'
+  if (dataProto === '[object Undefined]') return 'undefined'
+  if (dataProto === '[object Null]') return 'null'
+  if (dataProto === '[object Array]') return 'array'
+  if (dataProto === '[object Function]') return 'function'
+  if (dataProto === '[object Date]') return 'date'
+  if (dataProto === '[object RegExp]') return 'regexp'
+  if (dataProto === '[object HTMLDocument]') return 'document'
+  if (dataProto === '[object Window]') return 'window'
+}
+
+export {
+  timestampToTime,
+  timestampToEnd,
+  setCookie,
+  getCookie,
+  delCookie,
+  judgeOS,
+  isWeiXin,
+  isMobileAvailable,
+  getQueryString,
+  languageSet,
+  judgeDataType
+}
