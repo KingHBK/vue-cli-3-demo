@@ -3,7 +3,7 @@
  * @param {String} timestamp  是 时间戳10位或13位
  * @return {String} 年-月-日 时:分:秒
  */
-let timestampToTime = (timestamp) => {
+const timestampToTime = (timestamp) => {
   let date, Y, M, D, h, m, s
   if (timestamp.length === 10) {
     date = new Date(timestamp * 1000)
@@ -24,7 +24,7 @@ let timestampToTime = (timestamp) => {
  * @param {String} timestamp  是 时间戳10位或13位
  * @return {String} 年-月-日 时:分:秒
  */
-let timestampToEnd = (timestamp) => {
+const timestampToEnd = (timestamp) => {
   let hours = Math.floor(timestamp / 3600)
   let minutes = Math.floor(timestamp % 3600 / 60)
   let seconds = Math.floor(timestamp % 3600 % 60)
@@ -40,7 +40,7 @@ let timestampToEnd = (timestamp) => {
  * @param {String} name 获取的参数名
  * @return {String} 返回参数
  */
-let getQueryString = (name) => {
+const getQueryString = (name) => {
   // let url = document.location.toString()
   let url = window.location.hash.toString()
   let arrObj = url.split('?')
@@ -65,7 +65,7 @@ let getQueryString = (name) => {
  * @param {String} value 是 设置的cookie的值
  * @param {String} day   否 设置的cookie的有效期限
  */
-let setCookie = (name, value, day) => {
+const setCookie = (name, value, day) => {
   day = day === undefined ? 0 : day
   if (day !== 0) { // 当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
     let expires = day * 24 * 60 * 60 * 1000
@@ -80,7 +80,7 @@ let setCookie = (name, value, day) => {
  * @param {String} name 是 需获取的cookie的名称
  * @return {String} 返回cookie
  */
-let getCookie = (name) => {
+const getCookie = (name) => {
   let reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
   let arr = document.cookie.match(reg)
   if (arr) {
@@ -93,7 +93,7 @@ let getCookie = (name) => {
  * 删除cookie
  * @param {String} name 是 需删除的cookie的名称
  */
-let delCookie = (name) => {
+const delCookie = (name) => {
   setCookie(name, ' ', -1)
 }
 
@@ -101,7 +101,7 @@ let delCookie = (name) => {
  * 判断手机浏览器类型（安卓或苹果）
  * @return {String} android(安卓) ios(苹果)
  */
-let judgeOS = () => {
+const judgeOS = () => {
   let u = navigator.userAgent
   let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1
   let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
@@ -116,7 +116,7 @@ let judgeOS = () => {
  * 判断是否微信浏览器
  * @return {Boolean}
  */
-let isWeiXin = () => {
+const isWeiXin = () => {
   let ua = window.navigator.userAgent.toLowerCase()
   return ua.indexOf('micromessenger') !== -1
 }
@@ -126,7 +126,7 @@ let isWeiXin = () => {
  * @param {String} phone 是 手机号码
  * @return {Boolean}
  */
-let isMobileAvailable = (phone) => {
+const isMobileAvailable = (phone) => {
   let reg = /^[1][3,4,5,7,8][0-9]{9}$/
   if (!reg.test(phone)) {
     return false
@@ -139,7 +139,7 @@ let isMobileAvailable = (phone) => {
  * 语言设置
  * @return {String} 如果当前浏览器没有设置语言，则默认设置并返回中文。若有设置则直接返回当前设置语言.
  */
-let languageSet = () => {
+const languageSet = () => {
   if (getCookie('language') === '') {
     setCookie('language', 'cn')
     return 'cn'
