@@ -28,6 +28,14 @@ const router = new Router({
         checkAuth: false
       },
       component: () => import('@/views/lesson/DataType')
+    },
+    {
+      path: '/lesson/prototype',
+      meta: {
+        title: '原型及原型链',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/Prototype')
     }
   ]
 })

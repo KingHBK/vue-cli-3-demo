@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>数据类型</div>
 </template>
 
 <script>
