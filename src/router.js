@@ -36,6 +36,14 @@ const router = new Router({
         checkAuth: false
       },
       component: () => import('@/views/lesson/Prototype')
+    },
+    {
+      path: '/lesson/callApply',
+      meta: {
+        title: 'call()和apply()',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/CallApply')
     }
   ]
 })
