@@ -44,6 +44,14 @@ const router = new Router({
         checkAuth: false
       },
       component: () => import('@/views/lesson/CallApply')
+    },
+    {
+      path: '/lesson/closure',
+      meta: {
+        title: '闭包',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/Closure')
     }
   ]
 })
