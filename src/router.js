@@ -30,9 +30,17 @@ const router = new Router({
       component: () => import('@/views/lesson/DataType')
     },
     {
+      path: '/lesson/proto',
+      meta: {
+        title: '原型',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/Proto')
+    },
+    {
       path: '/lesson/prototype',
       meta: {
-        title: '原型及原型链',
+        title: '原型链',
         checkAuth: false
       },
       component: () => import('@/views/lesson/Prototype')
