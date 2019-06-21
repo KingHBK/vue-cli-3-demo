@@ -60,6 +60,14 @@ const router = new Router({
         checkAuth: false
       },
       component: () => import('@/views/lesson/Closure')
+    },
+    {
+      path: '/lesson/asyncAwait',
+      meta: {
+        title: 'async和await',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/AsyncAwait')
     }
   ]
 })
