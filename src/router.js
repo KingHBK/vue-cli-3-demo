@@ -68,6 +68,30 @@ const router = new Router({
         checkAuth: false
       },
       component: () => import('@/views/lesson/AsyncAwait')
+    },
+    {
+      path: '/lesson/es6',
+      meta: {
+        title: 'ES6',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/ES6')
+    },
+    {
+      path: '/lesson/retina',
+      meta: {
+        title: 'Retina问题',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/RetinaPx')
+    },
+    {
+      path: '/vue/slot',
+      meta: {
+        title: 'vue插槽',
+        checkAuth: false
+      },
+      component: () => import('@/views/vue/slot/Slot')
     }
   ]
 })
