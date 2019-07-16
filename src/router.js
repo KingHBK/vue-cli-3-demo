@@ -86,6 +86,14 @@ const router = new Router({
       component: () => import('@/views/lesson/RetinaPx')
     },
     {
+      path: '/lesson/media',
+      meta: {
+        title: '媒体查询',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/Media')
+    },
+    {
       path: '/vue/slot',
       meta: {
         title: 'vue插槽',

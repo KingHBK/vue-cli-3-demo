@@ -3,7 +3,6 @@ const path = require('path')
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   productionSourceMap: false,
-
   devServer: {
     open: false,
     proxy: {
@@ -15,7 +14,6 @@ module.exports = {
       }
     }
   },
-
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'less',

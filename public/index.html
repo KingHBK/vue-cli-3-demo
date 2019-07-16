@@ -3,9 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>vue-cli-3-demo</title>
+    <script>
+      var viewport = document.querySelector('meta[name=viewport]')
+      // 下面是根据设备像素设置viewport
+      if (window.devicePixelRatio === 1) {
+        viewport.setAttribute('content', 'width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no')
+      }
+      if (window.devicePixelRatio === 2) {
+        viewport.setAttribute('content', 'width=device-width,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no')
+      }
+      if (window.devicePixelRatio === 3) {
+        viewport.setAttribute('content', 'width=device-width,initial-scale=0.3333333333333333,maximum-scale=0.3333333333333333,minimum-scale=0.3333333333333333,user-scalable=no')
+      }
+    </script>
   </head>
   <body>
     <noscript>
