@@ -100,12 +100,61 @@ const router = new Router({
         checkAuth: false
       },
       component: () => import('@/views/vue/slot/Slot')
+    },
+    {
+      path: '/vuex/1',
+      meta: {
+        title: 'vuex测试1',
+        checkAuth: false
+      },
+      component: () => import('@/views/vuex/Vuex1')
+    },
+    {
+      path: '/vuex/state',
+      meta: {
+        title: 'state测试',
+        checkAuth: false
+      },
+      component: () => import('@/views/vuex/VuexState')
+    },
+    {
+      path: '/vuex/getter',
+      meta: {
+        title: 'getter测试',
+        checkAuth: false
+      },
+      component: () => import('@/views/vuex/VuexGetter')
+    },
+    {
+      path: '/vuex/mutation',
+      meta: {
+        title: 'mutation测试',
+        checkAuth: false
+      },
+      component: () => import('@/views/vuex/VuexMutation')
+    },
+    {
+      path: '/vuex/action',
+      meta: {
+        title: 'action测试',
+        checkAuth: false
+      },
+      component: () => import('@/views/vuex/VuexAction')
+    },
+    {
+      path: '/vuex/module',
+      meta: {
+        title: 'module测试',
+        checkAuth: false
+      },
+      component: () => import('@/views/vuex/VuexModule')
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
   const token = getCookie('token')
+  document.title = to.meta.title
   if (to.meta.checkAuth && (token === null || token === '')) {
     Toast('请登录')
     next({ path: '/login/index' })

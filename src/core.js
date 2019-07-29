@@ -3,7 +3,7 @@ import VueI18n from 'vue-i18n'
 import router from './router'
 import axios from 'axios'
 import { Toast } from 'vant'
-import { delCookie, languageSet } from '@/assets/js/common'
+import { getCookie, delCookie, languageSet } from '@/assets/js/common'
 import { cn, en } from '@/assets/js/language'
 
 Vue.use(VueI18n)
@@ -29,6 +29,9 @@ const apiConfig = {
   baseUrl: isProd ? `` : '/api', // 对应axios的baseUrl
   wsUrl: isProd ? `` : ``, // websocket的地址
   dealRequest (config) { // 拦截请求时的处理
+    if (getCookie('token')) {
+      config.headers.Authorization = getCookie('token')
+    }
     return config
   },
   dealResponse (response) { // 拦截返回时的处理
