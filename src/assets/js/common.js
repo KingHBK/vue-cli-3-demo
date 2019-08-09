@@ -136,19 +136,6 @@ const isMobileAvailable = (phone) => {
 }
 
 /**
- * 语言设置
- * @return {String} 如果当前浏览器没有设置语言，则默认设置并返回中文。若有设置则直接返回当前设置语言.
- */
-const languageSet = () => {
-  if (getCookie('language') === '') {
-    setCookie('language', 'cn')
-    return 'cn'
-  } else {
-    return getCookie('language')
-  }
-}
-
-/**
  * 判断数据类型
  * @param {*} data 传入需判断数据类型的参数
  * @return {String} 数据类型(全小写字符串)
@@ -179,6 +166,5 @@ export {
   isWeiXin,
   isMobileAvailable,
   getQueryString,
-  languageSet,
   judgeDataType
 }

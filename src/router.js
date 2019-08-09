@@ -78,6 +78,14 @@ const router = new Router({
       component: () => import('@/views/lesson/ES6')
     },
     {
+      path: '/lesson/class',
+      meta: {
+        title: 'ES6类Class',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/ClassES6')
+    },
+    {
       path: '/lesson/retina',
       meta: {
         title: 'Retina问题',
@@ -100,6 +108,17 @@ const router = new Router({
         checkAuth: false
       },
       component: () => import('@/views/vue/slot/Slot')
+    },
+    {
+      path: '/router/interceptor',
+      meta: {
+        title: '路由拦截',
+        checkAuth: false
+      },
+      component: () => import('@/views/vue/router/Interceptor'),
+      beforeEnter: (to, from, next) => {
+        next()
+      }
     },
     {
       path: '/vuex/1',
@@ -162,5 +181,9 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
+router.beforeResolve((to, from, next) => {
+  next()
+})
+router.afterEach((to, from) => {})
 
 export default router

@@ -1,12 +1,7 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
 import router from './router'
 import axios from 'axios'
 import { Toast } from 'vant'
-import { getCookie, delCookie, languageSet } from '@/assets/js/common'
-import { cn, en } from '@/assets/js/language'
-
-Vue.use(VueI18n)
+import { getCookie, delCookie } from '@/assets/js/common'
 
 // 判断当前应用环境
 // 生产环境
@@ -15,13 +10,6 @@ const isProd = Object.is(process.env.NODE_ENV, 'production') && window.location.
 // const isQc = Object.is(process.env.NODE_ENV, 'production') && window.location.host.indexOf('') > -1
 // 开发环境
 // const isDev = Object.is(process.env.NODE_ENV, 'development')
-
-const i18n = new VueI18n({
-  locale: languageSet(),
-  messages: {
-    cn, en
-  }
-})
 
 // 接口请求相关，修改时清不要直接修改拦截器，修改此处配置即可
 const A = axios
@@ -69,4 +57,4 @@ A.interceptors.response.use(response => {
   Toast(`连接异常 ${error.response.status}`)
 })
 
-export { i18n, A }
+export { A }
