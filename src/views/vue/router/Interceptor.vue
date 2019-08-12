@@ -1,6 +1,8 @@
 <template>
   <div>
     <h1>路由拦截</h1>
+    <button @click="$router.push({ path: '/' })">跳转至首页</button>
+    <button @click="$router.replace({ path: '/router/interceptor/2'})">更新组件</button>
   </div>
 </template>
 

@@ -14,6 +14,18 @@ const router = new Router({
       redirect: '/Home'
     },
     {
+      path: '*',
+      redirect: '/NotFound'
+    },
+    {
+      path: '/NotFound',
+      meta: {
+        title: '404',
+        checkAuth: false
+      },
+      component: () => import('@/views/404')
+    },
+    {
       path: '/Home',
       meta: {
         title: '首页',
@@ -110,15 +122,25 @@ const router = new Router({
       component: () => import('@/views/vue/slot/Slot')
     },
     {
-      path: '/router/interceptor',
+      path: '/router',
       meta: {
-        title: '路由拦截',
+        title: '路由',
         checkAuth: false
       },
-      component: () => import('@/views/vue/router/Interceptor'),
-      beforeEnter: (to, from, next) => {
-        next()
-      }
+      component: () => import('@/views/vue/router/Children'),
+      children: [
+        {
+          path: 'interceptor/:id',
+          meta: {
+            title: '路由拦截',
+            checkAuth: false
+          },
+          component: () => import('@/views/vue/router/Interceptor'),
+          beforeEnter: (to, from, next) => {
+            next()
+          }
+        }
+      ]
     },
     {
       path: '/vuex/1',
