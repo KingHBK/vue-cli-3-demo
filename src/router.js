@@ -114,6 +114,14 @@ const router = new Router({
       component: () => import('@/views/lesson/Media')
     },
     {
+      path: '/lesson/viewTest',
+      meta: {
+        title: '题目',
+        checkAuth: false
+      },
+      component: () => import('@/views/lesson/ViewTest')
+    },
+    {
       path: '/vue/slot',
       meta: {
         title: 'vue插槽',
