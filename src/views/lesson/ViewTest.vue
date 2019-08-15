@@ -47,7 +47,7 @@ export default {
     console.log(removeRepeatStr2(strTest))
 
     // 数组排序思路
-    const arrTest = [ 7, 4, 3, 5, 8, 5, 2, 4, 1, 6 ]
+    const arrTest = [ 2, 4, 3, 5, 4, 5, 2, 4, 1, 2 ]
     const sortArr1 = arr => {
       let newArr = []
       for (let i = 0; i < arr.length; i++) {
@@ -70,13 +70,12 @@ export default {
 
     // 冒泡式排序
     const sortArr2 = arr => {
-      let temp
-      for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length - 1; j++) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - 1 - i; j++) {
           if (arr[j] > arr[j + 1]) {
-            temp = arr[j + 1]
-            arr[ j + 1 ] = arr[j]
-            arr[j] = temp
+            let temp = arr[j]
+            arr[j] = arr[j + 1]
+            arr[j + 1] = temp
           }
         }
       }
