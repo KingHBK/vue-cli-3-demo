@@ -130,6 +130,14 @@ const router = new Router({
       component: () => import('@/views/vue/slot/Slot')
     },
     {
+      path: '/vue/computed',
+      meta: {
+        title: '计算属性',
+        checkAuth: false
+      },
+      component: () => import('@/views/vue/Computed')
+    },
+    {
       path: '/router',
       meta: {
         title: '路由',

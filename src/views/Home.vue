@@ -28,6 +28,18 @@ export default {
     handleLanguage () {
       this.$refs.language.dealLanguage()
     }
+  },
+  mounted () {
+    // let sum = 0
+    // let add = 1
+    // const recursion = () => {
+    //   if (add === 101) return
+    //   sum += add
+    //   add++
+    //   recursion()
+    // }
+    // recursion()
+    // console.log(sum)
   }
 }
 </script>

@@ -84,6 +84,11 @@ export default {
 
     console.log(sortArr1(arrTest))
     console.log(sortArr2(arrTest))
+
+    // 数组去重
+    let afterSet = new Set(arrTest)
+    afterSet = Array.from(afterSet)
+    console.log(afterSet)
   }
 }
 </script>
